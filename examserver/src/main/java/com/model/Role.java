@@ -1,4 +1,4 @@
-package com.exam.model;
+package com.model;
 
 import java.util.HashSet;
 import java.util.Set;

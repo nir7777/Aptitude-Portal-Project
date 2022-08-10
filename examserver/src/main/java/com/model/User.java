@@ -1,4 +1,4 @@
-package com.exam.model;
+package com.model;
 
 
 

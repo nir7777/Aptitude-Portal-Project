@@ -1,4 +1,4 @@
-package com.exam.model;
+package com.model;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
