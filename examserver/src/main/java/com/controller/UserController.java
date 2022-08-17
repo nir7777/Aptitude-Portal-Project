@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.service.UserService;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class UserController {
 	
 	@Autowired
@@ -28,10 +30,12 @@ public class UserController {
 	//  Creating User  
 	//	when there will be request for /user then this method will get executed
 	
-	@PostMapping("/")
+	@PostMapping("/register")
+	@CrossOrigin("*")
 	public User createUser(@RequestBody User user) throws Exception
 	{
 		
+			user.setProfile("default.png");
 			Set<UserRole> roles = new HashSet<>();
 			
 			Role role=new Role();
