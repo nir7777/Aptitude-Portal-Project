@@ -4,6 +4,7 @@ package com.service.impl;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.model.User;
@@ -16,6 +17,7 @@ import com.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
+	
 	@Autowired
 	private UserRepository userRepository;
 	
