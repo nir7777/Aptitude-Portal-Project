@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeeComponent } from './pages/homee/homee.component';
+
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
 
+//   {
+//   path:'',
+//   component:NavbarComponent,
+//   pathMatch:'full'
+//   },
+
  {
   path:'',
-  component:HomeeComponent,
+  component: HomeComponent,
   pathMatch:'full',
  },
 

@@ -65,7 +65,7 @@ public class UserController {
 		this.userService.deleteUser(userId);
 	}
 
-	//update the uset by id
+	//update the uset   by id
 	@PutMapping("/update_user")
 	public User update(@RequestBody User user)
 	{

@@ -14,9 +14,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { HomeeComponent } from './pages/homee/homee.component';
 import {MatCardModule}  from '@angular/material/card';
-import {from} from 'rxjs';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { HomeComponent } from './pages/home/home.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import {from} from 'rxjs';
     FooterComponent,
     SignupComponent,
     LoginComponent,
-    HomeeComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -38,7 +40,9 @@ import {from} from 'rxjs';
     FormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
     
   ],
   providers: [],
