@@ -10,7 +10,7 @@ public class JwtResponse {
 
 	public JwtResponse() {
 	
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public String getToken() {
