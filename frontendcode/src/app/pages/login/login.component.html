@@ -8,19 +8,25 @@
             <img src="../../../assets/logo.png" alt="" style="height:120px" />
           </div>
           <h1 class="text-center">Login Here</h1>
-
-          <form>
+          <!-- {{loginData | json}} -->
+          <form (ngSubmit)="formSubmit()">
             <!-- username field -->
             <mat-form-field class="full-width" appearance="fill">
               <mat-label>Username</mat-label>
-              <input required matInput placeholder="Enter Here" />
+              <input 
+              [(ngModel)]="loginData.username"
+              name="username"
+              required matInput placeholder="Enter Here" />
               <mat-hint>Please Enter A Valid Username</mat-hint>
             </mat-form-field>
 
             <!-- password field -->
             <mat-form-field class="full-width" appearance="fill">
               <mat-label>Password</mat-label>
-              <input required matInput placeholder="Enter Here" />
+              <input 
+              [(ngModel)]="loginData.password"
+              name="password"
+              required matInput placeholder="Enter Here" />
             </mat-form-field>
 
             <div class="container text-center">

@@ -9,6 +9,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -27,7 +28,7 @@ import com.service.impl.UserDetailsServiceImpl;
 
 @EnableWebSecurity
 @Configuration
-//@EnableGlobalAuthentication(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class MySecurityConfig extends WebSecurityConfigurerAdapter
 {
 	@Autowired
@@ -47,9 +48,9 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter
 	}
 	
 	@Bean
-	public PasswordEncoder passwordEncoder()
+	public BCryptPasswordEncoder passwordEncoder()
 	{
-		return  NoOpPasswordEncoder.getInstance();
+		return  new BCryptPasswordEncoder();
 	}
 	
 	@Override
