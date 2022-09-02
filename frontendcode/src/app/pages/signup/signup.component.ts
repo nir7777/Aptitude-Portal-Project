@@ -26,10 +26,13 @@ export class SignupComponent implements OnInit {
   formSubmit()
   {
     console.log(this.user);
-    if(this.user.username=='' ||  this.user.username == null)
+    if(this.user.username=='' ||  this.user.username == null || this.user.password=='' ||  this.user.password == null ||
+    this.user.firstname=='' ||  this.user.firstname == null || this.user.lastname=='' ||  this.user.lastname == null ||
+    this.user.email=='' ||  this.user.email == null || this.user.phone=='' ||  this.user.phone == null )
+   
     {
       // alert('User is required!!')
-      this.snack.open('Username is required !!', '',{
+      this.snack.open('some fields are empty !!', '',{
         duration:3000,
         // we can change position of snackbar 
         // verticalPosition:'top',
@@ -46,14 +49,16 @@ export class SignupComponent implements OnInit {
         //success
         console.log(data);
         // alert('sucess');
+        
         Swal.fire('Successfully Done!!','User id is' + data.id,'success')
+        
       },
 
       (error) => {
         //error
         console.log(error);
         // alert('something went wrong');
-        this.snack.open('Username is required !!', '',{
+        this.snack.open('Username Already exist !!', '',{
           duration:3000, 
         });
    
