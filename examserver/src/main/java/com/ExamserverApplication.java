@@ -16,21 +16,21 @@ import com.service.UserService;
 
 @SpringBootApplication
 public class ExamserverApplication implements CommandLineRunner {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-		
+
 	public static void main(String[] args) {
 		SpringApplication.run(ExamserverApplication.class, args);
 	}
-	
+
 	@Override
-	public void run(String... args) throws Exception{
+	public void run(String... args) throws Exception {
 		System.out.println("starting code");
-		
+
 //		User user  = new User();
 //		user.setFirstname("Neeraj");
 //		user.setLastname("Ahire");
@@ -54,7 +54,7 @@ public class ExamserverApplication implements CommandLineRunner {
 //		User user1 = this.userService.createUser(user, userRoleSet);
 //		System.out.println(user1.getUsername());
 //		
-		
+
 	}
 
 }

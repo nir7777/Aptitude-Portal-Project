@@ -4,13 +4,12 @@ public class JwtResponse {
 	String token;
 
 	public JwtResponse(String token) {
-		
+
 		this.token = token;
 	}
 
 	public JwtResponse() {
-	
-		
+
 	}
 
 	public String getToken() {
@@ -21,7 +20,4 @@ public class JwtResponse {
 		this.token = token;
 	}
 
-	
-	
-	
 }
