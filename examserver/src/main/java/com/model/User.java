@@ -1,7 +1,5 @@
 package com.model;
 
-
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,15 +20,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
 
 //@Autowired
 //private User user;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -42,41 +38,28 @@ public class User implements UserDetails {
 	private String phone;
 	private String profile;
 	private boolean enabled = true;
-	
-	//user many roles
-	
+
+	// user many roles
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
 	@JsonIgnore
 	private Set<UserRole> userRoles = new HashSet<>();
-	
-	
-	
-	
+
 	public User() {
 
-		
 	}
-	
-	
-	
-	
+
 	public Set<UserRole> getUserRoles() {
 		return userRoles;
 	}
-
-
-
 
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}
 
-
-
-
 	public User(Long id, String username, String password, String firstname, String lastname, String email,
 			String phone, String profile, boolean enabled) {
-		
+
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -87,8 +70,6 @@ public class User implements UserDetails {
 		this.profile = profile;
 		this.enabled = enabled;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -162,21 +143,15 @@ public class User implements UserDetails {
 		this.profile = profile;
 	}
 
-
-
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		
-		Set<Authority> set= new HashSet<>();
+
+		Set<Authority> set = new HashSet<>();
 		this.userRoles.forEach(userRole -> {
 			set.add(new Authority(userRole.getRole().getRoleName()));
 		});
 		return set;
 	}
-
-
-
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -184,17 +159,11 @@ public class User implements UserDetails {
 		return true;
 	}
 
-
-
-
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
-
-
 
 	@Override
 	public boolean isCredentialsNonExpired() {
@@ -202,10 +171,4 @@ public class User implements UserDetails {
 		return true;
 	}
 
-
-
-
-	
-	
-	
 }

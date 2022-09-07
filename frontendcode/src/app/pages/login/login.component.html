@@ -1,11 +1,10 @@
-
 <div class="bootstrap-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <mat-card class="mat-elevation-z4">
           <div class="container text-center">
-            <img src="../../../assets/logo.png" alt="" style="height:120px" />
+            <img src="../../../assets/logo.png" alt="" style="height: 120px" />
           </div>
           <h1 class="text-center">Login Here</h1>
           <!-- {{loginData | json}} -->
@@ -13,20 +12,26 @@
             <!-- username field -->
             <mat-form-field class="full-width" appearance="fill">
               <mat-label>Username</mat-label>
-              <input 
-              [(ngModel)]="loginData.username"
-              name="username"
-              required matInput placeholder="Enter Here" />
+              <input
+                [(ngModel)]="loginData.username"
+                name="username"
+                required
+                matInput
+                placeholder="Enter Here"
+              />
               <mat-hint>Please Enter A Valid Username</mat-hint>
             </mat-form-field>
 
             <!-- password field -->
             <mat-form-field class="full-width" appearance="fill">
               <mat-label>Password</mat-label>
-              <input 
-              [(ngModel)]="loginData.password"
-              name="password"
-              required matInput placeholder="Enter Here" />
+              <input
+                [(ngModel)]="loginData.password"
+                name="password"
+                required
+                matInput
+                placeholder="Enter Here"
+              />
             </mat-form-field>
 
             <div class="container text-center">

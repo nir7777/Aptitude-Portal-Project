@@ -9,13 +9,12 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class UserRole {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userRoleId;
 
-
-	//user
+	// user
 	@ManyToOne(fetch = FetchType.EAGER)
 	private User user;
 
@@ -49,8 +48,5 @@ public class UserRole {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
-	
-
 
 }
