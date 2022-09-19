@@ -1,5 +1,6 @@
 package com.model.exam;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ public class Question {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private Long quesId;
+	@Column(length = 5000)
 	private String content;
 	
 	private String image;
