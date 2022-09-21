@@ -12,4 +12,10 @@ export class CategoryService {
   {
     return this._http.get(`http://localhost:8080/category/`);
   }
+
+  //add new category
+
+  public addCategory(category: any){
+    return this._http.post(`http://localhost:8080/category/`, category);
+  }
 }
