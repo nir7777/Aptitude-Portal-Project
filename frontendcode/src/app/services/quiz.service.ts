@@ -11,4 +11,11 @@ export class QuizService {
   public quizzes(){
     return this._http.get(`http://localhost:8080/quiz/`)
   }
+
+  //add quiz
+
+  public addQuiz(quiz: any)
+  {
+    return this._http.post('http://localhost:8080/quiz/',quiz);
+  }
 }
