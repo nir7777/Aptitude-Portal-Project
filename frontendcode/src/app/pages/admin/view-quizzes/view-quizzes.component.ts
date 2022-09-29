@@ -22,7 +22,22 @@ export class ViewQuizzesComponent implements OnInit {
         console.log(error);
         Swal.fire('Error !',"Error in loading  data !", 'error');
       }
-    )
+    );
+  }
+  // delete
+  deleteQuiz(qId:any)
+  {
+    this._quiz.deleteQuiz(qId).subscribe(
+      (data)=> {
+        
+        Swal.fire('Success','Quiz deleted','success');
+      },
+      (error)=>
+      {
+        Swal.fire('Error','Error in deleting quiz','error');
+      }
+      );
+    
   }
 
 }
