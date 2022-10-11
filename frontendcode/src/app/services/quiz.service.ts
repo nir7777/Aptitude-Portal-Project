@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import baseUrl from './helper';
 
 @Injectable({
@@ -21,9 +22,20 @@ export class QuizService {
   }
 
  //delete quiz
-  public deleteQuiz(qid: any)
+  // public deleteQuiz(qId:any) 
+  // {
+  //   return this._http.delete('http://localhost:8080/quiz/${qId}');
+  // }
+  public deleteQuizz(id: any) {
+
+    return this._http.delete(`http://localhost:8080/quiz/${id}`);
+
+  }
+
+  // Get the Single Quiz 
+  public getQuiz(qId : any)
   {
-    return this._http.delete(`http://localhost:8080/quiz/qId`);
+      return this._http.get(``)
   }
 
 }
