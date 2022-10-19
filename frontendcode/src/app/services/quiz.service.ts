@@ -8,7 +8,9 @@ import baseUrl from './helper';
 })
 export class QuizService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(public _http:HttpClient) { }
+
+  
 
   public quizzes(){
     return this._http.get(`http://localhost:8080/quiz/`)
@@ -16,26 +18,58 @@ export class QuizService {
 
   //add quiz
 
-  public addQuiz(quiz: any)
+  public addQuiz(quiz: {
+      title: string; description: string; //   return this._http.delete('http://localhost:8080/quiz/${qId}');
+      //   return this._http.delete('http://localhost:8080/quiz/${qId}');
+      // }
+      maxMarks: string; numberOfQuestions: string; active: boolean; category: { // }
+        cid: string;
+      };
+    })
   {
-    return this._http.post(`http://localhost:8080/quiz/`,quiz);
+    return this._http.post(`${baseUrl}/quiz/`,quiz);
   }
 
  //delete quiz
-  // public deleteQuiz(qId:any) 
+  // public deleteQuiz(qId:any)  
   // {
   //   return this._http.delete('http://localhost:8080/quiz/${qId}');
   // }
-  public deleteQuizz(id: any) {
+  public deleteQuizz(qId: any) {
 
-    return this._http.delete(`http://localhost:8080/quiz/${id}`);
+    return this._http.delete(`${baseUrl}/quiz/${qId}`);
 
   }
 
   // Get the Single Quiz 
-  public getQuiz(qId : any)
+  public getQuiz(qId: any)
   {
-      return this._http.get(``)
+      return this._http.get(`${baseUrl}/quiz/${qId}`)
   }
+
+
+  // previous
+  // public getQuiz(qId: any)
+  // {
+  
+  //    const data =this._http.get(`${baseUrl}/quiz/${qId}`)
+  //    console.log(data+"chu")
+  //    return data
+  // }
+
+// new  update quiz
+  public updateQuiz(quiz: any)
+  {
+    return this._http.put(`http://localhost:8080/quiz/`,quiz);
+  }
+
+  // view-questions
+  public getequizquestions(quesId:any){
+    return this._http.get(`${baseUrl}/question/${quesId}`)
+
+  }
+
+
+
 
 }

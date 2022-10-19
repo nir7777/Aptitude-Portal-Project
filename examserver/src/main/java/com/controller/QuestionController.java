@@ -47,7 +47,9 @@ public class QuestionController {
 		return ResponseEntity.ok(this.service.updateQuestion(question));
 	}
 	
-	// get all Question of any quiz
+	
+	
+	// get all Question of any single quiz
 	@GetMapping("/quiz/{qid}")
 	public ResponseEntity<?> getQuestionsOfQuiz(@PathVariable("qid") Long qid)
 	{
@@ -66,7 +68,32 @@ public class QuestionController {
 		Collections.shuffle(list);
 		return ResponseEntity.ok(list);
 	}
+	
+	
+	@GetMapping("/quiz/all/{qid}")
+	public ResponseEntity<?> getQuestionsOfQuizAdmin(@PathVariable("qid") Long qid)
+	{
+		Quiz quiz = new Quiz();
+		quiz.setQid(qid);
+		Set<Question> questionOfQuiz = this.service.getQuestionsOfQuiz(quiz);
+		return ResponseEntity.ok(questionOfQuiz);
+		
+//		Quiz quiz = this.quizService.getQuiz(qid);
+//		Set<Question> questions =  quiz.getQuestions();
+//		List list = new ArrayList(questions);
+//		if(list.size()>Integer.parseInt(quiz.getNumberOfQuestions()))
+//		{
+//			list=list.subList(0, Integer.parseInt(quiz.getNumberOfQuestions()+1));
+//		}
+//		Collections.shuffle(list);
+//		return ResponseEntity.ok(list);
+		
+	}
+	
+	
+	
 	// get single question
+	@CrossOrigin("*")
 	@GetMapping("/{quesId}")
 	public Question get(@PathVariable("quesId") Long quesId)
 	{
