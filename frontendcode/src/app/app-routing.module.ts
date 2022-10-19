@@ -17,13 +17,16 @@ import { AddCategoriesComponent } from './pages/admin/add-categories/add-categor
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 
 const routes: Routes = [
-  //   {
-  //   path:'',
-  //   component:NavbarComponent,
-  //   pathMatch:'full'
-  //   },
+    // {
+    // path:'',
+    // component:NavbarComponent,
+    // pathMatch:'full'
+    // },
 
   {
     path: '',
@@ -46,6 +49,7 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AdminGuard],
     children: [
+
       {
         path: 'profile',
         component: ProfileComponent,
@@ -68,7 +72,15 @@ const routes: Routes = [
       },
       {
         path:'quiz/:qid',
-        component:UpdateQuizComponent
+        component:UpdateQuizComponent,
+      },
+      {
+        path: 'view-questions/:qid/:title',
+        component: ViewQuizQuestionsComponent,
+      },
+      {
+        path:"add-question/:qid/:title",
+        component:AddQuestionComponent,
       }
 
     ],
