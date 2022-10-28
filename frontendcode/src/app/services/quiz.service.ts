@@ -65,11 +65,16 @@ export class QuizService {
 
   // view-questions
   public getequizquestions(quesId:any){
-    return this._http.get(`${baseUrl}/question/${quesId}`)
+    return this._http.get(`${baseUrl}/question/${quesId}`);
 
   }
 
+//get quizzes of category
 
+public getQuizzesOfCategory(cid:any)
+{
+  return this._http.get(`${baseUrl}/quiz/category/${cid}`);
+}
 
 
 }

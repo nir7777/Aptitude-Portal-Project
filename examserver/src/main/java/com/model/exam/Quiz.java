@@ -49,6 +49,19 @@ public class Quiz {
 		return qid;
 	}
 
+	public Quiz(Long qid, String title, String description, String maxMarks, String numberOfQuestions, boolean active,
+			Category category, Set<Question> questions) {
+		super();
+		this.qid = qid;
+		this.title = title;
+		this.description = description;
+		this.maxMarks = maxMarks;
+		this.numberOfQuestions = numberOfQuestions;
+		this.active = active;
+		this.category = category;
+		this.questions = questions;
+	}
+
 	public void setQid(Long qid) {
 		this.qid = qid;
 	}
