@@ -6,6 +6,7 @@ import baseUrl from './helper';
   providedIn: 'root'
 })
 export class QuestionService {
+  
 
   constructor(
     private _http:HttpClient
@@ -15,4 +16,17 @@ export class QuestionService {
   {
     return this._http.get(`${baseUrl}/question/quiz/${qid}`);
   }
+
+  //add question
+  public addQuestion(question: any)
+  {
+    return this._http.post(`${baseUrl}/question/`, question)
+  }
+
+//delete Question
+public deleteQuestion(questionId:any)
+{
+  return this._http.delete(`${baseUrl}/question/${questionId}`)
+ 
+}
 }

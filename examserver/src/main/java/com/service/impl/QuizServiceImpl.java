@@ -1,11 +1,13 @@
 package com.service.impl;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.model.exam.Category;
 import com.model.exam.Quiz;
 import com.repo.QuizRepository;
 import com.service.QuizService;
@@ -45,6 +47,12 @@ public class QuizServiceImpl implements QuizService{
 //		quiz.setQid(quizId);
 		this.quizRepository.deleteById(quizId);
 		
+	}
+
+	@Override
+	public List<Quiz> getQuizzesOfCategory(Category category) {
+		// TODO Auto-generated method stub
+		return this.quizRepository.findBycategory(category);
 	}
 
 }

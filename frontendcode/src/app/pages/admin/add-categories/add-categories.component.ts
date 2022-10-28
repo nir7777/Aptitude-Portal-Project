@@ -16,7 +16,8 @@ export class AddCategoriesComponent implements OnInit {
 
   };
 
-  constructor(private _category:CategoryService,private _snack:MatSnackBar) { }
+  constructor(private _category:CategoryService,
+              private _snack:MatSnackBar) { }
 
   ngOnInit(): void {}
 

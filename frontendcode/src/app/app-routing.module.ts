@@ -20,6 +20,7 @@ import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.compo
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 
 const routes: Routes = [
     // {
@@ -88,8 +89,13 @@ const routes: Routes = [
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
-    pathMatch: 'full',
     canActivate: [NormalGuard],
+    children:[
+      {
+        path:':catId',
+        component: LoadQuizComponent,
+      },
+    ]
   },
 ];
 
