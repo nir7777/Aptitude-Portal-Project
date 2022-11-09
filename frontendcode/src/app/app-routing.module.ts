@@ -21,6 +21,8 @@ import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/vi
 import { ComponentPortal } from '@angular/cdk/portal';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartComponent } from './pages/user/start/start.component';
 
 const routes: Routes = [
     // {
@@ -63,6 +65,7 @@ const routes: Routes = [
         path:'add-category',
         component:AddCategoriesComponent,
       },
+
       {
         path:'quizzes',
         component:ViewQuizzesComponent,
@@ -79,6 +82,7 @@ const routes: Routes = [
         path: 'view-questions/:qid/:title',
         component: ViewQuizQuestionsComponent,
       },
+
       {
         path:"add-question/:qid/:title",
         component:AddQuestionComponent,
@@ -86,6 +90,7 @@ const routes: Routes = [
 
     ],
   },
+
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
@@ -95,7 +100,18 @@ const routes: Routes = [
         path:':catId',
         component: LoadQuizComponent,
       },
-    ]
+      {
+        path:'instructions/:qid',
+        component:InstructionsComponent,
+      },
+     
+    ],
+    
+  },
+  {
+    path:'start/:qid',
+    component:StartComponent,
+    canActivate: [NormalGuard], 
   },
 ];
 
